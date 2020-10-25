@@ -1,0 +1,23 @@
+<h1><{$myform.title}></h1>
+
+
+<form name='<{$myform.name}>' action='<{$myform.action}>' method='<{$myform.method}>'>
+
+<{foreach item=field key=name from=$myform.elements }>
+ <{if $field.hidden }>
+    <{$field.body}>
+ <{/if}> 
+<{/foreach}>
+<table class='outer' width='100%'>
+<{foreach item=field key=name from=$myform.elements }>
+ <{if ! $field.hidden }>
+  <tr>
+   <td class='even'><{$field.caption}></td>    
+   <td class='odd'><{$field.body}> <br>
+       <{$page.formextra.$name}></td>
+  </tr>
+  <{/if}>
+<{/foreach}>
+</table>
+
+</form>
